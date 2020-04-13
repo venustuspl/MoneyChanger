@@ -29,12 +29,7 @@ public class Test {
         result = result.substring(0 , length -2);
         System.out.println(result);
 
-        Object data = new Gson().fromJson(result, Object.class);
-        LinkedTreeMap<String, String> jsonMap = (LinkedTreeMap<String, String>) data;
-
-        for (Map.Entry<String, String> entry : jsonMap.entrySet())
-
-        // Show it.
-        System.out.println(data);
+        Table data = new Gson().fromJson(result, Table.class);
+        System.out.println(data.getId() + " - " + data.getNo());
     }
 }
