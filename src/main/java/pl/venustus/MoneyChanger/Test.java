@@ -3,6 +3,7 @@ package pl.venustus.MoneyChanger;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import org.springframework.http.*;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.client.RestTemplate;
 import pl.venustus.MoneyChanger.domain.Currency;
 import pl.venustus.MoneyChanger.domain.Table;
@@ -30,6 +31,6 @@ public class Test {
         System.out.println(result);
 
         Table data = new Gson().fromJson(result, Table.class);
-        System.out.println(data.getId() + " - " + data.getNo());
+        data.getRates().stream().forEach(System.out::println);
     }
 }
