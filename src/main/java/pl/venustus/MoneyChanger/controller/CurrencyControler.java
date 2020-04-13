@@ -23,7 +23,7 @@ public class CurrencyControler {
         HttpHeaders headers = new HttpHeaders();
 
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        HttpEntity<String> entity = new HttpEntity<String>( headers);
+        HttpEntity<String> entity = new HttpEntity<String>("currency", headers);
 
         ResponseEntity<Currency[]> result = restTemplate.exchange(uri, HttpMethod.GET, entity, Currency[].class);
 

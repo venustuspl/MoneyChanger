@@ -15,15 +15,11 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 public class Currency {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+    private String currency;
     private String code;
     private BigDecimal mid;
-    private LocalDate date;
 
     public Currency() {
     }
