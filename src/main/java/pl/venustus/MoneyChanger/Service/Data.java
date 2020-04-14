@@ -1,4 +1,4 @@
-package pl.venustus.MoneyChanger;
+package pl.venustus.MoneyChanger.Service;
 
 import com.google.gson.Gson;
 import org.springframework.http.HttpEntity;
@@ -10,11 +10,11 @@ import pl.venustus.MoneyChanger.domain.DayTableDto;
 
 import java.util.Arrays;
 
-public class Test {
-    public static void main(String[] args) {
+public class Data {
 
-        String uri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
+    private static final String uri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
+    public static DayTableDto getLastDayTableDto() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
@@ -26,14 +26,10 @@ public class Test {
         int length = result.length();
 
         result = result.substring(1, length);
-        result = result.substring(0 , length -2);
+        result = result.substring(0, length - 2);
         System.out.println(result);
 
         DayTableDto data = new Gson().fromJson(result, DayTableDto.class);
-        System.out.println("---------------------");
-        System.out.println(data.getTable());
-        System.out.println(data.getNo());
-        System.out.println(data.getEffectiveDate());
-        data.getRates().stream().forEach(System.out::println);
+        return data;
     }
 }

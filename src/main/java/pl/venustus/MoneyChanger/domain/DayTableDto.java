@@ -2,17 +2,17 @@ package pl.venustus.MoneyChanger.domain;
 
 import java.util.ArrayList;
 
-public class TableDto {
+public class DayTableDto {
 
     private String table;
     private String no;
     private String effectiveDate;
     private ArrayList<CurrencyDto> rates;
 
-    public TableDto() {
+    public DayTableDto() {
     }
 
-    public TableDto(String table, String no, String effectiveDate, ArrayList<CurrencyDto> rates){
+    public DayTableDto(String table, String no, String effectiveDate, ArrayList<CurrencyDto> rates) {
         this.table = table;
         this.no = no;
         this.effectiveDate = effectiveDate;
