@@ -31,6 +31,10 @@ public class Test {
         System.out.println(result);
 
         Table data = new Gson().fromJson(result, Table.class);
+        System.out.println("---------------------");
+        System.out.println(data.getTable());
+        System.out.println(data.getId());
+        System.out.println(data.getNo());
         data.getRates().stream().forEach(System.out::println);
     }
 }
