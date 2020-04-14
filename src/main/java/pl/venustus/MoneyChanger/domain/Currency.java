@@ -12,8 +12,12 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
 public class Currency {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String no;
     private String currency;
     private String code;
     private BigDecimal mid;
@@ -21,8 +25,9 @@ public class Currency {
     public Currency() {
     }
 
-    public Currency(Long id, String currency, String code, BigDecimal mid) {
+    public Currency(Long id, String no, String currency, String code, BigDecimal mid) {
         this.id = id;
+        this.no = no;
         this.currency = currency;
         this.code = code;
         this.mid = mid;
@@ -34,6 +39,14 @@ public class Currency {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
     }
 
     public String getCurrency() {

@@ -7,6 +7,7 @@ import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.client.RestTemplate;
 import pl.venustus.MoneyChanger.domain.Currency;
 import pl.venustus.MoneyChanger.domain.Table;
+import pl.venustus.MoneyChanger.domain.TableDto;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -30,11 +31,11 @@ public class Test {
         result = result.substring(0 , length -2);
         System.out.println(result);
 
-        Table data = new Gson().fromJson(result, Table.class);
+        TableDto data = new Gson().fromJson(result, TableDto.class);
         System.out.println("---------------------");
         System.out.println(data.getTable());
-        System.out.println(data.getId());
         System.out.println(data.getNo());
+        System.out.println(data.getEffectiveDate());
         data.getRates().stream().forEach(System.out::println);
     }
 }

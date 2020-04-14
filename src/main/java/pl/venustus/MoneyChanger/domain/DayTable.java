@@ -10,13 +10,25 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Table {
+@Entity
+public class DayTable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String table;
+    private String dayTable;
     private String no;
-   // private LocalDate effectiveDate;
-    private ArrayList<Currency> rates;
+    private LocalDate effectiveDate;
+
+    public DayTable() {
+    }
+
+    public DayTable(Long id, String dayTable, String no, LocalDate effectiveDate) {
+        this.id = id;
+        this.dayTable = dayTable;
+        this.no = no;
+        this.effectiveDate = effectiveDate;
+    }
 
     public Long getId() {
         return id;
@@ -26,12 +38,12 @@ public class Table {
         this.id = id;
     }
 
-    public String getTable() {
-        return table;
+    public String getDayTable() {
+        return dayTable;
     }
 
     public void setTable(String table) {
-        this.table = table;
+        this.dayTable = table;
     }
 
     public String getNo() {
@@ -42,11 +54,4 @@ public class Table {
         this.no = no;
     }
 
-    public ArrayList<Currency> getRates() {
-        return rates;
-    }
-
-    public void setRates(ArrayList<Currency> rates) {
-        this.rates = rates;
-    }
 }
