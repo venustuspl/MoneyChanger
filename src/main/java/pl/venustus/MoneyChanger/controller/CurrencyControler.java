@@ -25,6 +25,7 @@ public class CurrencyControler {
     public String getMap(Model model) throws IOException {
         model.addAttribute("lastdaytable", Data.getLastDayTableDto());
 
+
         return "index";
 
     }
