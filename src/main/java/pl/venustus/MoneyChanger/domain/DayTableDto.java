@@ -50,4 +50,14 @@ public class DayTableDto {
     public void setRates(ArrayList<CurrencyDto> rates) {
         this.rates = rates;
     }
+
+    @Override
+    public String toString() {
+        return "DayTableDto{" +
+                "table='" + table + '\'' +
+                ", no='" + no + '\'' +
+                ", effectiveDate='" + effectiveDate + '\'' +
+                ", rates=" + rates +
+                '}';
+    }
 }

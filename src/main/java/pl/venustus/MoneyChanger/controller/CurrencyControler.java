@@ -21,9 +21,9 @@ public class CurrencyControler {
         return Data.getLastDayTableDto();
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String getMap(Model model) throws IOException {
-        model.addAttribute("lastdaytable", Data.getLastDayTableDto().getNo());
+        model.addAttribute("lastdaytable", Data.getLastDayTableDto());
 
         return "index";
 
