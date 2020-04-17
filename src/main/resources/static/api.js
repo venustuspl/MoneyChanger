@@ -9,7 +9,7 @@ function append(parent, el) {
 
 const ad = document.getElementById('alldata');
 
-fetch("/")
+fetch("/alldata")
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
         let rates = data; // Get the results
