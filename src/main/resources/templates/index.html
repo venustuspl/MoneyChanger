@@ -1,17 +1,35 @@
+<!--
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link href="favicon.ico" rel="shortcut icon"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CoronaVirus statistics</title>
+    <META CONTENT="koronawirus, koronawirus, coronavirus, covid-19" NAME="KEYWORDS">
     <link href="style.css" rel="stylesheet" type="text/css"/>
 
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <link href="form.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <meta content="origin" name="referrer">
 </head>
 <body>
 
-<span th:text="${lastdaytable}"></span><br>
 <ul id="alldata">
 </ul>
+<h1>Hej.</h1>
+
+<span th:text="${lastdaytable}"></span><br>
 
 </body>
+
 <script src="api.js"></script>
 </html>

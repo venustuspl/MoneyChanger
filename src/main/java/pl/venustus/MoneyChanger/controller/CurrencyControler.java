@@ -1,33 +1,38 @@
 package pl.venustus.MoneyChanger.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.venustus.MoneyChanger.Service.Data;
-import pl.venustus.MoneyChanger.domain.DayTableDto;
+import pl.venustus.MoneyChanger.domain.CurrencyDto;
 
 import java.io.IOException;
+import java.util.List;
 
-
-@Controller
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/")
 public class CurrencyControler {
 
     @Autowired
     Data data;
 
     @GetMapping("/lastdaytable")
-    public DayTableDto hello() {
-        return Data.getLastDayTableDto();
+    public List<CurrencyDto> hello() {
+        System.out.println("----");
+        return data.getLastDayTableDto();
     }
 
-    @GetMapping("/")
-    public String getMap(Model model) throws IOException {
-        model.addAttribute("lastdaytable", Data.getLastDayTableDto());
+//    @RequestMapping(method = RequestMethod.GET, value = "/")
+//    public String getMap(Model model) throws IOException {
+//        model.addAttribute("lastdaytable", data.getLastDayTableDto());
+//        return "index";
+//
+//    }
 
-
-        return "index";
-
+    @RequestMapping(method = RequestMethod.GET, value = "/alldata")
+    public List<CurrencyDto> showRecords() throws IOException {
+        System.out.println("---");
+        return data.getLastDayTableDto();
     }
 
 }

@@ -7,16 +7,18 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import pl.venustus.MoneyChanger.domain.CurrencyDto;
 import pl.venustus.MoneyChanger.domain.DayTableDto;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class Data {
 
     private static final String uri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
-    public static DayTableDto getLastDayTableDto() {
+    public List<CurrencyDto> getLastDayTableDto() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
@@ -32,6 +34,7 @@ public class Data {
         System.out.println(result);
 
         DayTableDto data = new Gson().fromJson(result, DayTableDto.class);
-        return data;
+
+        return data.getRates();
     }
 }
