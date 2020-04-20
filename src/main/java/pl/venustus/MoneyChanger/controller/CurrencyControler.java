@@ -30,8 +30,14 @@ public class CurrencyControler {
 //    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/alldata")
-    public List<CurrencyDto> showRecords() throws IOException {
+    public List<CurrencyDto> getAllRates() throws IOException {
         System.out.println("---");
+        return data.getLastDayTableDto();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/alloption")
+    public List<CurrencyDto> getAllOptions() throws IOException {
+        System.out.println("getAllOptions");
         return data.getLastDayTableDto();
     }
 

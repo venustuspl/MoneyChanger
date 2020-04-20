@@ -22,10 +22,35 @@
     <meta content="origin" name="referrer">
 </head>
 <body>
+<table>
+    <tr>
+        <td align="center" width="50%"><h2>Current rates</h2></td>
+        <td align="center" width="50%"><h2>Calc your cash</h2></td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <ul id="alldata">
+            </ul>
+        </td>
+        <td width="50%">
 
-<ul id="alldata">
-</ul>
-<h1>Hej.</h1>
+            <form name='formularz'>
+                <input name='tekst' onkeyup="przeslij()" type='text'><br>
+                <input name="zaznacz" onchange="przeslij()" type="checkbox"/><br>
+                <input name="wybierz" onchange="przeslij()" type="radio" value="opcja1"/><br>
+                <input name="wybierz" onchange="przeslij()" type="radio" value="opcja2"/><br>
+                <select id="alloption" name='lista' onchange="przeslij()">
+
+                </select>
+                <br>
+                <textarea name="pole" onkeyup="przeslij()">Pole tekstowe</textarea>
+            </form>
+            <div id="wynik"></div>
+
+        </td>
+    </tr>
+</table>
+
 
 <span th:text="${lastdaytable}"></span><br>
 
