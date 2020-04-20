@@ -36,3 +36,11 @@ fetch("/alloption")
             append(opt, li);
         })
     });
+
+function calculate(){
+  var rate = 5; //todo
+  var cash = document.getElementById("cash").innerHTML;
+
+  document.getElementById("result").innerHTML = cash ;
+
+}
