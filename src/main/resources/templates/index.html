@@ -33,7 +33,7 @@
             </ul>
         </td>
         <td width="50%">
-            <select id="alloption" name="list" onchange="()">
+            <select id="alloption" name="list" onchange="changeFunction(this.value)">
             </select>
 
             <input id="cash" type="number"><br>
@@ -42,7 +42,12 @@
 
             <p id="result">Result</p>
 
+            <script>
+function changeFunction(val) {
+  alert("The input value has changed. The new value is: " + val);
+}
 
+            </script>
         </td>
     </tr>
 </table>

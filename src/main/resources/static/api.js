@@ -31,6 +31,7 @@ fetch("/alloption")
         return rates.map(function (rate) { // Map through the results and for each run the code below
             let li = createNode('option'), //  Create the elements we need
                 span = createNode('span');
+              li.value.innerHTML = '${rate.mid}';
             li.innerHTML = `${rate.currency} : ${rate.code} : ${rate.mid} `; // Make the HTML of our span to be the first and last name of our author
             append(li, span);
             append(opt, li);
