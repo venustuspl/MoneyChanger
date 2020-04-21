@@ -25,7 +25,7 @@
 <table>
     <tr>
         <td align="center" width="50%"><h2>Current rates</h2></td>
-        <td align="center" width="50%"><h2>Calc your cash</h2></td>
+        <td align="center" width="50%"><h2>Calc PLN value in selected currency</h2></td>
     </tr>
     <tr>
         <td width="50%">
@@ -33,25 +33,18 @@
             </ul>
         </td>
         <td width="50%">
-            <select id="alloption" name="list" onchange="changeFunction(this.value)">
+            <select id="alloption" name="list">
             </select>
 
-            <input id="cash" type="number"><br>
+            <input id="cash" type="number" value="0"><br>
 
             <button id="calculate" onclick="calculate()">Calculate</button>
+            <h4>In this currency you your cash value is: </h4>
+            <p id="result">0</p>
 
-            <p id="result">Result</p>
-
-            <script>
-function changeFunction(val) {
-  alert("The input value has changed. The new value is: " + val);
-}
-
-            </script>
         </td>
     </tr>
 </table>
-
 
 <span th:text="${lastdaytable}"></span><br>
 
