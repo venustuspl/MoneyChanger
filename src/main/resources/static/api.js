@@ -41,7 +41,7 @@ fetch("/alloption")
 function calculate(){
   var rate = document.getElementById("alloption").value
   var cash = document.getElementById("cash").value ;
-
-  document.getElementById("result").innerHTML = cash / rate;
+  var result = cash / rate;
+  document.getElementById("result").innerHTML = result.toFixed(2);
 
 }

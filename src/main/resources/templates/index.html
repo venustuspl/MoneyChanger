@@ -7,7 +7,7 @@
   -->
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <link href="favicon.ico" rel="shortcut icon"/>
     <meta charset="UTF-8">
@@ -21,32 +21,35 @@
 
     <meta content="origin" name="referrer">
 </head>
-<body background-color="blue">
+<body style="background-color: yellow">
 <table>
     <tr>
-        <td align="center" width="50%"><h2>Current rates</h2></td>
-        <td align="center" width="50%"><h2>Calc PLN value in selected currency</h2></td>
+        <td align="center" width="34%"><h2>Last NBP currency rates</h2></td>
+        <td align="center" width="33%"><h2>Calc PLN value into selected currency</h2></td>
+        <td align="center" width="33%"><h2>Calc one currency value into other currency</h2></td>
     </tr>
     <tr>
-        <td width="50%">
+        <td width="34%">
             <ul id="alldata">
             </ul>
         </td>
-        <td width="50%">
+        <td width="33%">
+            <h4>Select other currency:</h4>
             <select id="alloption" name="list">
             </select>
-
+            <br>
+            <h4>Put your PLN:</h4>
+            <br>
             <input id="cash" type="number" value="0"><br>
-
             <button id="calculate" onclick="calculate()">Calculate</button>
             <h4>In this currency you your cash value is: </h4>
-            <p id="result">0</p>
+            <h4><p id="result">0</p></h4>
+        </td>
+        <td width="33%">
 
         </td>
     </tr>
 </table>
-
-<span th:text="${lastdaytable}"></span><br>
 
 </body>
 
