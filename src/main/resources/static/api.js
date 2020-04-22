@@ -89,17 +89,10 @@ function calculate2(){
 }
 
 const lastdate = document.getElementById('lastdate');
-
-fetch("/lastdate")
-    .then((resp) => resp.json()) // Transform the data into json
-    .then(function (data) {
-        let rates = data; // Get the results
-        return rates.map(function (rate) { // Map through the results and for each run the code below
-            let li = createNode('option'), //  Create the elements we need
-                span = createNode('span');
-              li.value = `${rate.mid}`;
-            li.innerHTML = `${rate}`; // Make the HTML of our span to be the first and last name of our author
-            append(li, span);
-            append(lastdate, li);
-        })
-    });
+//
+//fetch("/lastdate")
+//    .then((resp) => resp.json()) // Transform the data into json
+//    .then(function (data) {
+//            append(lastdate, data)
+//        })
+//    });

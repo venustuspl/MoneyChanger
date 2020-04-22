@@ -21,21 +21,9 @@ public class CurrencyControler {
 
     @RequestMapping(method = RequestMethod.GET, value = "/lastdate")
     public String getLastDate() {
+        System.out.println(data.getDateOfLastDayTableDto());
         return data.getDateOfLastDayTableDto();
     }
-
-//    @RequestMapping(method = RequestMethod.GET, value = "/")
-//    public String getMap(Model model) throws IOException {
-//        model.addAttribute("lastdaytable", data.getLastDayTableDto());
-//        return "index";
-//
-//    }
-//
-//    @RequestMapping(method = RequestMethod.GET, value = "/alldata")
-//    public List<CurrencyDto> getAllRates() throws IOException {
-//        System.out.println("---");
-//        return data.getLastDayTableDto();
-//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/alloption")
     public List<CurrencyDto> getAllOptions() throws IOException {
