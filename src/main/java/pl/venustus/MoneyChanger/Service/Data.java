@@ -18,7 +18,8 @@ public class Data {
 
     private static final String uri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
-    public List<CurrencyDto> getLastDayTableDto() {
+
+    public static DayTableDto getLastDayTableDto() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
@@ -35,6 +36,14 @@ public class Data {
 
         DayTableDto data = new Gson().fromJson(result, DayTableDto.class);
 
-        return data.getRates();
+        return data;
+    }
+
+    public List<CurrencyDto> getLastDayCurrencyList() {
+        return getLastDayTableDto().getRates();
+    }
+
+    public String getDateOfLastDayTableDto() {
+        return getLastDayTableDto().getEffectiveDate();
     }
 }

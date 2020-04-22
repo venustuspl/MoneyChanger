@@ -22,10 +22,10 @@
     <meta content="origin" name="referrer">
 </head>
 <body style="background-color: yellow">
-<table>
+<table border="normal">
 
-<tr>
-        <td align="center" width="34%"><h2>Last NBP currency rates</h2></td>
+    <tr>
+        <td align="center" width="34%"><h2>Last NBP currency rates from: <span id="lastdate"></span></h2></td>
         <td align="center" width="33%"><h2>Calc PLN value into selected currency</h2></td>
         <td align="center" width="33%"><h2>Calc one currency value into other currency</h2></td>
     </tr>
@@ -34,7 +34,7 @@
             <ul id="alldata">
             </ul>
         </td>
-        <td width="33%">
+        <td align="center" width="33%">
             <h4>Select other currency:</h4>
             <select id="alloption" name="list">
             </select>
@@ -46,12 +46,12 @@
             <h4>In this currency you your cash value is: </h4>
             <h4><p id="result">0</p></h4>
         </td>
-        <td width="33%">
+        <td align="center" width="33%">
             <h4>Select base currency:</h4>
             <select id="alloption2" name="list2">
             </select>
             <br>
-            <h4>Put amount of base value:</h4>
+            <h4>Put amount of base currency:</h4>
             <br>
             <input id="cash2" type="number" value="0"><br>
             <h4>Select other currency:</h4>
