@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import pl.venustus.MoneyChanger.Service.Data;
 import pl.venustus.MoneyChanger.domain.CurrencyDto;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -19,11 +20,11 @@ public class CurrencyControler {
     @Autowired
     Data data;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/lastdate")
-    public String getLastDate() {
-        System.out.println(data.getDateOfLastDayTableDto());
-        return data.getDateOfLastDayTableDto();
-    }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public void lastDate(Model model) {
+//        model.addAttribute("lastdate", data.getDateOfLastDayTableDto());
+//
+//    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/alloption")
     public List<CurrencyDto> getAllOptions() throws IOException {

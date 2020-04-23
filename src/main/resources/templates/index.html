@@ -7,7 +7,7 @@
   -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link href="favicon.ico" rel="shortcut icon"/>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@
 <table border="normal">
 
     <tr>
-        <td align="center" width="34%"><h2>Last NBP currency rates <span id="lastdate"></span></h2></td>
+        <td align="center" width="34%"><h2>Last NBP currency rates <span th:text="${lastdate}"/></h2></td>
         <td align="center" width="33%"><h2>Calc PLN value into selected currency</h2></td>
         <td align="center" width="33%"><h2>Calc one currency value into other currency</h2></td>
     </tr>

@@ -87,12 +87,3 @@ function calculate2(){
   document.getElementById("result2").innerHTML = result.toFixed(2);
 
 }
-
-const lastdate = document.getElementById('lastdate');
-//
-//fetch("/lastdate")
-//    .then((resp) => resp.json()) // Transform the data into json
-//    .then(function (data) {
-//            append(lastdate, data)
-//        })
-//    });
