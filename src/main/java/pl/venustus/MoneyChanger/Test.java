@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
+import pl.venustus.MoneyChanger.Service.Data;
 import pl.venustus.MoneyChanger.domain.DayTableDto;
 
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public class Test {
         int length = result.length();
 
         result = result.substring(1, length);
-        result = result.substring(0 , length -2);
+        result = result.substring(0, length - 2);
         System.out.println(result);
 
         DayTableDto data = new Gson().fromJson(result, DayTableDto.class);
@@ -35,5 +36,8 @@ public class Test {
         System.out.println(data.getNo());
         System.out.println(data.getEffectiveDate());
         data.getRates().stream().forEach(System.out::println);
+
+        Data dataservice = new Data();
+        System.out.println(dataservice.getGoldPrice().getPrice());
     }
 }
