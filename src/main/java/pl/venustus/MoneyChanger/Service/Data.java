@@ -19,7 +19,7 @@ public class Data {
 
     private static final String uri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
-    private static final String goldUri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
+    private static final String goldUri = "https://api.nbp.pl/api/cenyzlota";
 
     public static DayTableDto getLastDayTableDto() {
         RestTemplate restTemplate = new RestTemplate();
@@ -57,16 +57,15 @@ public class Data {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-        String result = String.valueOf(restTemplate.exchange(uri, HttpMethod.GET, entity, String.class).getBody());
+        String result = String.valueOf(restTemplate.exchange(goldUri, HttpMethod.GET, entity, String.class).getBody());
 
         int length = result.length();
 
         result = result.substring(1, length);
         result = result.substring(0, length - 2);
-        System.out.println(result);
 
         GoldDto data = new Gson().fromJson(result, GoldDto.class);
-
+        System.out.println(data.getPrice());
         return data;
     }
 }

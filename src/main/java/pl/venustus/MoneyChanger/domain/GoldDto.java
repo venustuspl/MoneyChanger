@@ -2,27 +2,27 @@ package pl.venustus.MoneyChanger.domain;
 
 public class GoldDto {
 
-    private String date;
-    private double price;
+    private String data;
+    private String cena;
 
-    public GoldDto(String date, double price) {
-        this.date = date;
-        this.price = price;
+    public GoldDto(String date, String price) {
+        this.data = date;
+        this.data = price;
     }
 
     public String getDate() {
-        return date;
+        return data;
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.data = date;
     }
 
-    public double getPrice() {
-        return price;
+    public String getPrice() {
+        return cena;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPrice(String price) {
+        this.cena = price;
     }
 }
