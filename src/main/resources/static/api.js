@@ -94,10 +94,10 @@ fetch("/goldprice")
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
         let rates = data; // Get the results
-        return rates(function (rate) { // Map through the results and for each run the code below
+        return rates.map(function (rate) { // Map through the results and for each run the code below
             let li = createNode('li'), //  Create the elements we need
                 span = createNode('span');
-            li.innerHTML = `sss : ${rate.price}`; // Make the HTML of our span to be the first and last name of our author
+            li.innerHTML = `${rate.price}`; // Make the HTML of our span to be the first and last name of our author
             append(li, span);
             append(goldresult, li);
         })
