@@ -11,6 +11,7 @@ import pl.venustus.MoneyChanger.domain.CurrencyDto;
 import pl.venustus.MoneyChanger.domain.DayTableDto;
 import pl.venustus.MoneyChanger.domain.GoldDto;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class Data {
         return getLastDayTableDto().getEffectiveDate();
     }
 
-    public GoldDto getGoldPrice() {
+    public List<GoldDto> getGoldPrice() {
 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -66,6 +67,11 @@ public class Data {
 
         GoldDto data = new Gson().fromJson(result, GoldDto.class);
         System.out.println(data.getPrice());
-        return data;
+        System.out.println(data.getDate());
+
+        List<GoldDto> goldDtoList = new ArrayList<>();
+        goldDtoList.add(data);
+
+        return goldDtoList;
     }
 }

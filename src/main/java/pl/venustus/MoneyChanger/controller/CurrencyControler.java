@@ -27,7 +27,7 @@ public class CurrencyControler {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/goldprice")
-    public GoldDto getGoldPrice() throws IOException {
+    public List<GoldDto> getGoldPrice() throws IOException {
         return data.getGoldPrice();
     }
 }

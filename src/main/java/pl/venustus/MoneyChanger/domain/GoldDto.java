@@ -7,7 +7,7 @@ public class GoldDto {
 
     public GoldDto(String date, String price) {
         this.data = date;
-        this.data = price;
+        this.cena = price;
     }
 
     public String getDate() {

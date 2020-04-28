@@ -88,17 +88,17 @@ function calculate2(){
 
 }
 
-const goldprice = document.getElementById('goldprice');
+const gp = document.getElementById('goldresult');
 
 fetch("/goldprice")
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
-        let goldprices = data; // Get the results
-        return goldprices.map(function (goldprice) { // Map through the results and for each run the code below
+        let rates = data; // Get the results
+        return rates(function (rate) { // Map through the results and for each run the code below
             let li = createNode('li'), //  Create the elements we need
                 span = createNode('span');
-            li.innerHTML = `${goldprice.data} : ${goldprice.cena} aaa`; // Make the HTML of our span to be the first and last name of our author
+            li.innerHTML = `sss : ${rate.price}`; // Make the HTML of our span to be the first and last name of our author
             append(li, span);
-            append(goldprice, li);
+            append(goldresult, li);
         })
     });
