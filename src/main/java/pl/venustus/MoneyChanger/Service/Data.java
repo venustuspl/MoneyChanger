@@ -76,7 +76,7 @@ public class Data {
         return goldDtoList;
     }
 
-    public CoinDto getCoinRate(String coinCode) {
+    public List<CoinDto> getCoinRate(String coinCode) {
 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -90,11 +90,10 @@ public class Data {
 
         int length = result.length();
 
-//        result = result.substring(1, length);
-        //      result = result.substring(0, length - 2);
-        System.out.println(result);
         CoinDto coinDto = new Gson().fromJson(result, CoinDto.class);
+        List<CoinDto> coinDtoList = new ArrayList<>();
+        coinDtoList.add(coinDto);
 
-        return coinDto;
+        return coinDtoList;
     }
 }
