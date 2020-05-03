@@ -23,7 +23,7 @@ public class Data {
 
     private static final String goldNBPUri = "https://api.nbp.pl/api/cenyzlota";
 
-    private static final String coinBTCBinanceUri = "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT";
+    private static final String coinBinanceUri = "https://api.binance.com/api/v3/ticker/price?symbol=";
 
     public static DayTableDto getLastDayTableDto() {
         RestTemplate restTemplate = new RestTemplate();
@@ -67,7 +67,7 @@ public class Data {
 
         result = result.substring(1, length);
         result = result.substring(0, length - 2);
-
+        System.out.println(result);
         GoldDto data = new Gson().fromJson(result, GoldDto.class);
 
         List<GoldDto> goldDtoList = new ArrayList<>();
@@ -76,7 +76,7 @@ public class Data {
         return goldDtoList;
     }
 
-    public CoinDto getCoinRates() {
+    public CoinDto getCoinRate(String coinCode) {
 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -84,13 +84,15 @@ public class Data {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-        String result = String.valueOf(restTemplate.exchange(coinBTCBinanceUri, HttpMethod.GET, entity, String.class).getBody());
+        String coinUri = coinBinanceUri + coinCode;
+
+        String result = String.valueOf(restTemplate.exchange(coinUri, HttpMethod.GET, entity, String.class).getBody());
 
         int length = result.length();
 
-        result = result.substring(1, length);
-        result = result.substring(0, length - 2);
-
+//        result = result.substring(1, length);
+        //      result = result.substring(0, length - 2);
+        System.out.println(result);
         CoinDto coinDto = new Gson().fromJson(result, CoinDto.class);
 
         return coinDto;

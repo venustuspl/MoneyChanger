@@ -99,6 +99,36 @@ fetch("/goldprice")
                 span = createNode('span');
             li.innerHTML = `${rate.price}`; // Make the HTML of our span to be the first and last name of our author
             append(li, span);
-            append(goldresult, li);
+            append(gp, li);
+        })
+    });
+
+const btc = document.getElementById('btcrate');
+
+fetch("/coinrate?symbol=BTCUSDT")
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function (data) {
+        let rates = data; // Get the results
+        return rates.map(function (rate) { // Map through the results and for each run the code below
+            let li = createNode('li'), //  Create the elements we need
+                span = createNode('span');
+            li.innerHTML = `${rate.price} oo`; // Make the HTML of our span to be the first and last name of our author
+            append(li, span);
+            append(btc, li);
+        })
+    });
+
+const eth = document.getElementById('ethrate');
+
+fetch("/coinrate?symbol=ETHUSDT")
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function (ethdata) {
+        let ethrates = data; // Get the results
+        return ethrates.map(function (ethrate) { // Map through the results and for each run the code below
+            let li = createNode('li'), //  Create the elements we need
+                span = createNode('span');
+            li.innerHTML = `${ethrate.symbol}${ethrate.cena} oo`; // Make the HTML of our span to be the first and last name of our author
+            append(li, span);
+            append(eth, li);
         })
     });
