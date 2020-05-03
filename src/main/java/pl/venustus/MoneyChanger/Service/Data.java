@@ -18,9 +18,11 @@ import java.util.List;
 @Service
 public class Data {
 
-    private static final String uri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
+    private static final String currencyNBPUri = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
 
-    private static final String goldUri = "https://api.nbp.pl/api/cenyzlota";
+    private static final String goldNBPUri = "https://api.nbp.pl/api/cenyzlota";
+
+    private static final String coinBinanceUri = "https://api.binance.com/api/v3/ticker/price";
 
     public static DayTableDto getLastDayTableDto() {
         RestTemplate restTemplate = new RestTemplate();
@@ -29,7 +31,7 @@ public class Data {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-        String result = String.valueOf(restTemplate.exchange(uri, HttpMethod.GET, entity, String.class).getBody());
+        String result = String.valueOf(restTemplate.exchange(currencyNBPUri, HttpMethod.GET, entity, String.class).getBody());
 
         int length = result.length();
 
@@ -58,7 +60,7 @@ public class Data {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-        String result = String.valueOf(restTemplate.exchange(goldUri, HttpMethod.GET, entity, String.class).getBody());
+        String result = String.valueOf(restTemplate.exchange(goldNBPUri, HttpMethod.GET, entity, String.class).getBody());
 
         int length = result.length();
 
