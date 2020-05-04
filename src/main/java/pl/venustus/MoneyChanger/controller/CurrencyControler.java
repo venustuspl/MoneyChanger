@@ -31,6 +31,8 @@ public class CurrencyControler {
 
     @RequestMapping(method = RequestMethod.GET, value = "/coinrate")
     public List<CoinDto> getCoinDto(@RequestParam("symbol") String symbol) throws IOException {
+        System.out.println(symbol);
+        System.out.println();
         return data.getCoinRate(symbol);
     }
 }
