@@ -131,4 +131,5 @@ fetch("/coinrate?symbol=ETHUSDT")
             append(li, span);
             append(eth, li);
         })
+
     });
