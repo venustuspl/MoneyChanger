@@ -73,8 +73,15 @@
 </table>
 
 <h2 align="center">Graph of currency changes in the last year</h2>
+<script>
+    $(document).ready(function() {
+  var plot1 = $.jqplot ('chart1', [[3,7,9,1,4,6,8,2,5]]);
+});
 
+</script>
 </body>
 
 <script src="api.js"></script>
+<script src="jqplot.canvasAxisLabelRenderer.js"></script>
+<script src="jqplot.canvasTextRenderer.js"></script>
 </html>

@@ -133,3 +133,4 @@ fetch("/coinrate?symbol=ETHUSDT")
         })
 
     });
+
