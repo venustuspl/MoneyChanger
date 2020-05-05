@@ -3,6 +3,8 @@ body {
 	font-size: 14px;
 	color: #666;
 	margin: 100px;
+	background-image: url("money.jpg");
+    background-color: #cccccc;
 }
 
 #wrapper {
