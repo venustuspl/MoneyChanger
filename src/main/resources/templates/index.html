@@ -24,8 +24,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
 
-<body style="background-color: #cffccf; background-image: url('dolar.jpg') ">
+<div style="background-color: #cffccf; background-image: url('dolar.jpg') ">
 
+<div style="background-color: #cffccf>
 <h1 align="center">MONEY CHANGER</h1>
 <h2 align="center">Here you can check value of your money.</h2>
 <table border="normal" align="center" style="background-color: #cffccf">
@@ -77,7 +78,7 @@
 
 <h2 align="center">Graph of USD changes in the last year</h2>
 <canvas height="200" id="myChart" width="200"></canvas>
-
+</div>
 <script>
 $.getJSON("https://api.nbp.pl/api/exchangerates/rates/a/usd/last/253/?format=json", function(data) {
    var labels = data.rates.map(function(e) {
