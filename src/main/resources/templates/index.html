@@ -7,8 +7,8 @@
   -->
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+
     <link href="favicon.ico" rel="shortcut icon"/>
     <meta charset="UTF-8">
     <title>Money changer</title>
@@ -24,11 +24,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
 
-<div style="background-color: #cffccf; background-image: url('dolar.jpg') " >
+<body style="background-color: #cffccf; background-image: url('dolar.jpg') ">
 
-<div style="background-color: #cffccf>
-<h1 align="center">MONEY CHANGER</h1>
-<h2 align="center">Here you can check value of your money.</h2>
+
+<h1 align="center" style="background-color: #cffccf;">MONEY CHANGER </h1>
+<h2 align="center" style="background-color: #cffccf">Here you can check value of your money.</h2>
 <table border="normal" align="center" style="background-color: #cffccf">
     <tr>
         <td align="center" width="34%"><h2>Last NBP currency rates <span th:text="${lastdate}"/></h2></td>
@@ -76,9 +76,9 @@
     </tr>
 </table>
 
-<h2 align="center">Graph of USD changes in the last year</h2>
-<canvas height="200" id="myChart" width="200"></canvas>
-</div>
+<h2 align="center" style="background-color: #cffccf">Graph of USD changes in the last year</h2>
+<canvas height="200" id="myChart" style="background-color: #cffccf" width="200"></canvas>
+</body>
 <script>
 $.getJSON("https://api.nbp.pl/api/exchangerates/rates/a/usd/last/253/?format=json", function(data) {
    var labels = data.rates.map(function(e) {
