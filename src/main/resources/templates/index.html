@@ -20,7 +20,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <meta content="origin" name="referrer">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
+
 <body style="background-color: yellow">
 
 <h1 align="center">MONEY CHANGER</h1>
@@ -72,16 +75,37 @@
     </tr>
 </table>
 
-<h2 align="center">Graph of currency changes in the last year</h2>
-<script>
-    $(document).ready(function() {
-  var plot1 = $.jqplot ('chart1', [[3,7,9,1,4,6,8,2,5]]);
-});
+<h2 align="center">Graph of USD changes in the last year</h2>
+<canvas height="200" id="myChart" width="200"></canvas>
 
+<script>
+$.getJSON("https://api.nbp.pl/api/exchangerates/rates/a/usd/last/253/?format=json", function(data) {
+   var labels = data.rates.map(function(e) {
+      return e.effectiveDate;
+   });
+   var data = data.rates.map(function(e) {
+      return e.mid;
+   });
+
+   var ctx = document.getElementById('myChart').getContext('2d');
+   var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+         labels: labels,
+         datasets: [{
+            backgroundColor: 'rgb(129, 198, 2228)',
+            borderColor: 'rgb(0, 150, 215)',
+            data: data
+         }]
+      },
+      options: {
+         responsive: 'true',
+      }
+   });
+});
 </script>
+
 </body>
 
 <script src="api.js"></script>
-<script src="jqplot.canvasAxisLabelRenderer.js"></script>
-<script src="jqplot.canvasTextRenderer.js"></script>
 </html>
