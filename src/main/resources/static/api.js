@@ -153,7 +153,6 @@ fetch("/alloption")
 function showchart(){
   var currency = document.getElementById("chartalloption").value;
   var link = "https://api.nbp.pl/api/exchangerates/rates/a/" + currency + "/last/253/?format=json";
-    document.getElementById("test").innerHTML = link;
 
 $.getJSON(link, function(data) {
    var labels = data.rates.map(function(e) {
