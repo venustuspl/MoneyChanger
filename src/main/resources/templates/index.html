@@ -74,37 +74,25 @@
         <td>Binance BTC price: <p id="btcrate"></p> USD</td>
         <td>Binance ETH price: <p id="ethrate"></p> USD</td>
     </tr>
+
+    <tr>
+        <td>
+
+            <h4>Select bellow chart currency:</h4>
+            <select id="chartalloption" name="list1">
+            </select>
+            <button id="showchart" onclick="showchart()">Show chart</button>
+            <p id="test"></p>
+
+
+            <h2 align="center" style="background-color: #cffccf">Graph of currency changes in last year</h2>
+            <canvas height="200" id="myChart" style="background-color: #cffccf" width="200"></canvas>
+        </td>
+    </tr>
 </table>
 
-<h2 align="center" style="background-color: #cffccf">Graph of USD changes in the last year</h2>
-<canvas height="200" id="myChart" style="background-color: #cffccf" width="200"></canvas>
 </body>
-<script>
-$.getJSON("https://api.nbp.pl/api/exchangerates/rates/a/usd/last/253/?format=json", function(data) {
-   var labels = data.rates.map(function(e) {
-      return e.effectiveDate;
-   });
-   var data = data.rates.map(function(e) {
-      return e.mid;
-   });
 
-   var ctx = document.getElementById('myChart').getContext('2d');
-   var chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-         labels: labels,
-         datasets: [{
-            backgroundColor: 'rgb(129, 198, 2228)',
-            borderColor: 'rgb(0, 150, 215)',
-            data: data
-         }]
-      },
-      options: {
-         responsive: 'true',
-      }
-   });
-});
-</script>
 
 </body>
 
