@@ -178,3 +178,48 @@ $.getJSON(link, function(data) {
       }
    });
 });}
+
+// Coin chart
+const chartbtcopt = document.getElementById('chartbtcalloption');
+
+fetch("/allbtcoption")
+    .then((resp) => resp.json()) // Transform the data into json
+    .then(function (data) {
+        let rates = data; // Get the results
+        return rates.map(function (rate) { // Map through the results and for each run the code below
+            let li = createNode('option'), //  Create the elements we need
+                span = createNode('span');
+              li.value = `${rate.code}`;
+            li.innerHTML = `${rate.currency} : ${rate.code} : ${rate.mid}`; // Make the HTML of our span to be the first and last name of our author
+            append(li, span);
+            append(chartbtcopt, li);
+        })
+    });
+
+function showbtcchart(){
+  var link = "https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=1d";
+
+$.getJSON(link, function(data) {
+   var labels = data.map(function(e) {
+      return e.0;
+   });
+   var data = data.rates.map(function(e) {
+      return e.4;
+   });
+
+   var ctx = document.getElementById('myChart').getContext('2d');
+   var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+         labels: labels,
+         datasets: [{
+            backgroundColor: 'rgb(129, 198, 2228)',
+            borderColor: 'rgb(0, 150, 215)',
+            data: data
+         }]
+      },
+      options: {
+         responsive: 'true',
+      }
+   });
+});}
