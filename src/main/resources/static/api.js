@@ -180,8 +180,9 @@ $.getJSON(link, function(data) {
 });}
 
 // Coin chart
-const chartbtcopt = document.getElementById('chartbtcalloption');
 
+/*
+const chartbtcopt = document.getElementById('chartbtcalloption');
 fetch("/allbtcoption")
     .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
@@ -195,19 +196,19 @@ fetch("/allbtcoption")
             append(chartbtcopt, li);
         })
     });
-
+*/
 function showbtcchart(){
   var link = "https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=1d";
 
 $.getJSON(link, function(data) {
    var labels = data.map(function(e) {
-      return e.0;
+      return e;
    });
-   var data = data.rates.map(function(e) {
-      return e.4;
+   var data = data.map(function(e) {
+      return e;
    });
 
-   var ctx = document.getElementById('myChart').getContext('2d');
+   var ctx = document.getElementById('myBtcChart').getContext('2d');
    var chart = new Chart(ctx, {
       type: 'line',
       data: {
