@@ -198,9 +198,8 @@ fetch("/allbtcoption")
     });
 */
 function showbtcchart(){
-  var link = "https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=1d";
 
-$.getJSON(link, function(data) {
+$.getJSON("https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=1d", function(data) {
    var labels = data.map(function(e) {
       return e;
    });
