@@ -214,12 +214,13 @@ function timeConverter(UNIX_timestamp){
 
 function showbtcchart(){
 
-$.getJSON("https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=1d", function(data) {
+$.getJSON("https://api.binance.com/api/3/trades?symbol=BTCUSDT", function(data) {
    var labels = data.map(function(e) {
-      return e.0;
+
+      return timeConverter(e.time);
    });
    var data = data.map(function(e) {
-      return e.1;
+      return e.price;
    });
 
    var ctx = document.getElementById('myBtcChart').getContext('2d');
