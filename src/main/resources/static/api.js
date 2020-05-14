@@ -197,14 +197,29 @@ fetch("/allbtcoption")
         })
     });
 */
+
+
+function timeConverter(UNIX_timestamp){
+  var a = new Date(UNIX_timestamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var hour = a.getHours();
+  var min = a.getMinutes();
+  var sec = a.getSeconds();
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  return time;
+}
+
 function showbtcchart(){
 
 $.getJSON("https://api.binance.com/api/v1/klines?symbol=BTCUSDT&interval=1d", function(data) {
    var labels = data.map(function(e) {
-      return e;
+      return e.0;
    });
    var data = data.map(function(e) {
-      return e;
+      return e.1;
    });
 
    var ctx = document.getElementById('myBtcChart').getContext('2d');
