@@ -214,7 +214,7 @@ function timeConverter(UNIX_timestamp){
 
 function showbtcchart(){
 
-$.getJSON("https://api.binance.com/api/3/trades?symbol=BTCUSDT", function(data) {
+$.getJSON("https://api.binance.com/api/v3/trades?symbol=BTCUSDT", function(data) {
    var labels = data.map(function(e) {
 
       return timeConverter(e.time);
