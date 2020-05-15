@@ -200,7 +200,7 @@ fetch("/allbtcoption")
 
 
 function timeConverter(UNIX_timestamp){
-  var a = new Date(UNIX_timestamp * 1000);
+  var a = new Date(UNIX_timestamp);
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var year = a.getFullYear();
   var month = months[a.getMonth()];
@@ -214,7 +214,11 @@ function timeConverter(UNIX_timestamp){
 
 function showbtcchart(){
 
-$.getJSON("https://api.binance.com/api/v3/trades?symbol=BTCUSDT", function(data) {
+    var coin = document.getElementById("charbtctalloption").value;
+    var link = "https://api.binance.com/api/v3/trades?symbol=" + coin + "&limit=1000";
+
+
+$.getJSON(link, function(data) {
    var labels = data.map(function(e) {
 
       return timeConverter(e.time);
